@@ -2,9 +2,15 @@
   "$schema": "./node_modules/turbo/schema.json",
   "ui": "tui",
   "tasks": {
+    "transit": {
+      "dependsOn": ["^transit"]
+    },
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "typecheck": {
+      "dependsOn": ["transit"]
     }
   }
 }
