@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "packageManager": "pnpm@10.17.1",
-  "scripts": {},
+  "engines": {
+    "node": ">=24"
+  },
   "author": {
     "name": "Andrei Hudovich",
     "email": "andrei@hudovich.com",
@@ -12,5 +14,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ahudovich/analytics"
-  }
+  },
+  "scripts": {}
 }
