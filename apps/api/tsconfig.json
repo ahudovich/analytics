@@ -1,8 +1,5 @@
 {
-  "extends": [
-    "@tsconfig/node24/tsconfig.json",
-    "@tsconfig/node-ts/tsconfig.json"
-  ],
+  "extends": "@repo/config-typescript/node.json",
   "include": ["src"],
   "compilerOptions": {
     "outDir": "dist"

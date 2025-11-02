@@ -30,12 +30,9 @@ importers:
         specifier: ^5.6.1
         version: 5.6.1
     devDependencies:
-      '@tsconfig/node-ts':
-        specifier: ^23.6.1
-        version: 23.6.1
-      '@tsconfig/node24':
-        specifier: ^24.0.1
-        version: 24.0.1
+      '@repo/config-typescript':
+        specifier: workspace:*
+        version: link:../../packages/config-typescript
       '@types/node':
         specifier: 'catalog:'
         version: 24.9.2
@@ -48,12 +45,24 @@ importers:
 
   apps/tracker:
     devDependencies:
+      '@repo/config-typescript':
+        specifier: workspace:*
+        version: link:../../packages/config-typescript
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
       vite:
         specifier: ^7.1.12
         version: 7.1.12(@types/node@24.9.2)(tsx@4.20.6)
+
+  packages/config-typescript:
+    devDependencies:
+      '@tsconfig/node-ts':
+        specifier: ^23.6.1
+        version: 23.6.1
+      '@tsconfig/node24':
+        specifier: ^24.0.1
+        version: 24.0.1
 
 packages:
 
