@@ -7,7 +7,7 @@
     "dev": "vite"
   },
   "dependencies": {
-    "typescript": "^5.9.3",
+    "typescript": "catalog:",
     "vite": "^7.1.12"
   }
 }
