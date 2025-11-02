@@ -15,7 +15,10 @@
     "type": "git",
     "url": "https://github.com/ahudovich/analytics"
   },
-  "scripts": {},
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:tracker": "turbo run dev --filter=tracker"
+  },
   "devDependencies": {
     "turbo": "^2.6.0"
   }

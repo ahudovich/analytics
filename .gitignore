@@ -1,2 +1,11 @@
+# System
+.DS_Store
+
+# Editor directories and files
 .vscode
+
+# Dependencies
 node_modules
+
+# Artifacts
+.turbo
