@@ -17,6 +17,7 @@
   },
   "scripts": {
     "dev": "turbo run dev",
+    "dev:api": "turbo run dev --filter=api",
     "dev:tracker": "turbo run dev --filter=tracker",
     "lint:repo": "pnpm dlx sherif@latest",
     "format": "prettier --write .",
