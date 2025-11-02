@@ -1,0 +1,6 @@
+.vscode
+.vite
+.git
+node_modules
+*.yaml
+*.md

@@ -18,9 +18,12 @@
   "scripts": {
     "dev": "turbo run dev",
     "dev:tracker": "turbo run dev --filter=tracker",
-    "lint:repo": "pnpm dlx sherif@latest"
+    "lint:repo": "pnpm dlx sherif@latest",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
+    "prettier": "3.6.2",
     "turbo": "^2.6.0"
   }
 }
