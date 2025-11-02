@@ -5,11 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "lint": "eslint --flag unstable_native_nodejs_ts_config .",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@repo/config-eslint": "workspace:*",
     "@repo/config-typescript": "workspace:*",
+    "eslint": "catalog:",
     "typescript": "catalog:",
     "vite": "^7.1.12"
   }

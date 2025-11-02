@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts",
+    "lint": "eslint --flag unstable_native_nodejs_ts_config .",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -14,6 +15,7 @@
     "@repo/config-eslint": "workspace:*",
     "@repo/config-typescript": "workspace:*",
     "@types/node": "catalog:",
+    "eslint": "catalog:",
     "tsx": "^4.20.6",
     "typescript": "catalog:"
   }

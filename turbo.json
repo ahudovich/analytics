@@ -9,6 +9,9 @@
       "cache": false,
       "persistent": true
     },
+    "lint": {
+      "dependsOn": ["transit"]
+    },
     "typecheck": {
       "dependsOn": ["transit"]
     }

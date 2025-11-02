@@ -6,9 +6,15 @@ settings:
 
 catalogs:
   default:
+    '@eslint/js':
+      specifier: ^9.39.0
+      version: 9.39.0
     '@types/node':
       specifier: 24.9.2
       version: 24.9.2
+    eslint:
+      specifier: ^9.39.0
+      version: 9.39.0
     typescript:
       specifier: ^5.9.3
       version: 5.9.3
@@ -39,6 +45,9 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 24.9.2
+      eslint:
+        specifier: 'catalog:'
+        version: 9.39.0
       tsx:
         specifier: ^4.20.6
         version: 4.20.6
@@ -54,6 +63,9 @@ importers:
       '@repo/config-typescript':
         specifier: workspace:*
         version: link:../../packages/config-typescript
+      eslint:
+        specifier: 'catalog:'
+        version: 9.39.0
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -64,10 +76,10 @@ importers:
   packages/config-eslint:
     devDependencies:
       '@eslint/js':
-        specifier: ^9.39.0
+        specifier: 'catalog:'
         version: 9.39.0
       eslint:
-        specifier: ^9.39.0
+        specifier: 'catalog:'
         version: 9.39.0
       eslint-config-turbo:
         specifier: ^2.6.0

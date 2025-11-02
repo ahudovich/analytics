@@ -21,6 +21,7 @@
     "dev:tracker": "turbo run dev --filter=tracker",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "lint": "turbo run lint",
     "lint:repo": "pnpm dlx sherif@latest",
     "typecheck": "turbo run typecheck"
   },
