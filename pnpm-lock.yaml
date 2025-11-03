@@ -38,10 +38,10 @@ importers:
     devDependencies:
       '@repo/config-eslint':
         specifier: workspace:*
-        version: link:../../packages/config-eslint
+        version: link:../../configs/eslint
       '@repo/config-typescript':
         specifier: workspace:*
-        version: link:../../packages/config-typescript
+        version: link:../../configs/typescript
       '@types/node':
         specifier: 'catalog:'
         version: 24.9.2
@@ -62,10 +62,10 @@ importers:
     devDependencies:
       '@repo/config-eslint':
         specifier: workspace:*
-        version: link:../../packages/config-eslint
+        version: link:../../configs/eslint
       '@repo/config-typescript':
         specifier: workspace:*
-        version: link:../../packages/config-typescript
+        version: link:../../configs/typescript
       eslint:
         specifier: 'catalog:'
         version: 9.39.0(jiti@2.6.1)
@@ -76,7 +76,7 @@ importers:
         specifier: ^7.1.12
         version: 7.1.12(@types/node@24.9.2)(jiti@2.6.1)(tsx@4.20.6)
 
-  packages/config-eslint:
+  configs/eslint:
     devDependencies:
       '@eslint/js':
         specifier: 'catalog:'
@@ -94,7 +94,7 @@ importers:
         specifier: ^8.46.2
         version: 8.46.2(eslint@9.39.0(jiti@2.6.1))(typescript@5.9.3)
 
-  packages/config-typescript:
+  configs/typescript:
     devDependencies:
       '@tsconfig/node24':
         specifier: ^24.0.1
