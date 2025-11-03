@@ -1,6 +1,6 @@
-import { defineConfig, globalIgnores } from 'eslint/config'
-import turboConfig from 'eslint-config-turbo/flat'
 import jsEslint from '@eslint/js'
+import turboConfig from 'eslint-config-turbo/flat'
+import { defineConfig, globalIgnores } from 'eslint/config'
 import tsEslint from 'typescript-eslint'
 
 export const baseConfig = defineConfig([
