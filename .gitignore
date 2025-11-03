@@ -9,3 +9,5 @@ node_modules
 
 # Artifacts
 .turbo
+.output
+dist

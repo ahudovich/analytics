@@ -2,7 +2,6 @@
   "name": "@repo/config-typescript",
   "private": true,
   "devDependencies": {
-    "@tsconfig/node-ts": "^23.6.1",
     "@tsconfig/node24": "^24.0.1"
   }
 }

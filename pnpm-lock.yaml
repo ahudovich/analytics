@@ -6,9 +6,6 @@ settings:
 
 catalogs:
   default:
-    '@eslint/js':
-      specifier: ^9.39.0
-      version: 9.39.0
     '@types/node':
       specifier: 24.9.2
       version: 24.9.2
@@ -93,9 +90,6 @@ importers:
 
   packages/config-typescript:
     devDependencies:
-      '@tsconfig/node-ts':
-        specifier: ^23.6.1
-        version: 23.6.1
       '@tsconfig/node24':
         specifier: ^24.0.1
         version: 24.0.1
@@ -454,9 +448,6 @@ packages:
     resolution: {integrity: sha512-TAcgQh2sSkykPRWLrdyy2AiceMckNf5loITqXxFI5VuQjS5tSuw3WlwdN8qv8vzjLAUTvYaH/mVjSFpbkFbpTg==}
     cpu: [x64]
     os: [win32]
-
-  '@tsconfig/node-ts@23.6.1':
-    resolution: {integrity: sha512-1E5cUp+S65pLKKI9VrGMQPWDHxOEq3dAGM2onG3fLeSRwWbylYFwhIjnzJikjSN7w2nCgwxmv8ifvUKDFkK38Q==}
 
   '@tsconfig/node24@24.0.1':
     resolution: {integrity: sha512-3+IXshza3bIrT0tbHBr9CixQDVf4iBf0HTR0hCYowhpLqkzJjswu3UY8aZWjRXZep31kYB+o2SQeD8KwIoUHYw==}
@@ -1410,8 +1401,6 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.52.5':
     optional: true
-
-  '@tsconfig/node-ts@23.6.1': {}
 
   '@tsconfig/node24@24.0.1': {}
 
