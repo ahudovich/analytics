@@ -13,6 +13,8 @@
     "url": "https://github.com/ahudovich/analytics"
   },
   "scripts": {
+    "build": "turbo run build",
+    "build:api": "turbo run build --filter=api",
     "dev": "turbo run dev",
     "dev:api": "turbo run dev --filter=api",
     "dev:tracker": "turbo run dev --filter=tracker",
