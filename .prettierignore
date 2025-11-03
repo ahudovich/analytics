@@ -1,6 +1,8 @@
 .vscode
+.turbo
 .vite
 .git
-node_modules
 *.yaml
 *.md
+node_modules
+dist

@@ -3,8 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
+    "start": "node dist/index.js",
     "dev": "tsx watch src/index.ts",
+    "build": "tsdown",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
@@ -16,6 +21,7 @@
     "@repo/config-typescript": "workspace:*",
     "@types/node": "catalog:",
     "eslint": "catalog:",
+    "tsdown": "^0.15.12",
     "tsx": "^4.20.6",
     "typescript": "catalog:"
   }
