@@ -13,14 +13,14 @@
     "url": "https://github.com/ahudovich/analytics"
   },
   "scripts": {
-    "build": "turbo run build",
     "build:api": "turbo run build --filter=api",
+    "build:tracker": "turbo run build --filter=tracker",
     "dev": "turbo run dev",
     "dev:api": "turbo run dev --filter=api",
     "dev:tracker": "turbo run dev --filter=tracker",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "lint": "turbo run lint",
+    "lint": "turbo run lint lint:repo",
     "lint:repo": "pnpm dlx sherif@latest",
     "typecheck": "turbo run typecheck"
   },
