@@ -3,12 +3,13 @@ import { Event } from '@repo/enums/events'
 function init() {
   document.addEventListener('DOMContentLoaded', () => {
     sendEvent(Event.PageView, {
+      url: window.location.href,
+      referrer: document.referrer,
+      language: navigator.language,
       screen: {
         width: screen.width,
         height: screen.height,
       },
-      language: navigator.language,
-      url: window.location.href,
     })
   })
 }
