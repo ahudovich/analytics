@@ -1,13 +1,21 @@
 import fastifyCors from '@fastify/cors'
 import { fastify } from 'fastify'
+import {
+  serializerCompiler,
+  validatorCompiler,
+} from 'fastify-type-provider-zod'
 import { ingestRoute } from '@/routes/ingest'
+import type { ZodTypeProvider } from 'fastify-type-provider-zod'
 
 const HOST = 'localhost'
 const PORT = 3000
 
 const server = fastify({
   logger: true,
-})
+}).withTypeProvider<ZodTypeProvider>()
+
+server.setValidatorCompiler(validatorCompiler)
+server.setSerializerCompiler(serializerCompiler)
 
 server.register(fastifyCors, {
   origin: '*',
