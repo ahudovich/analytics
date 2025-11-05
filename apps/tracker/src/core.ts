@@ -1,8 +1,9 @@
-import { Event } from '@repo/enums/events'
+import { EventType } from '@repo/enums/events'
+import type { IEvent } from '@repo/types/events'
 
 function init() {
   document.addEventListener('DOMContentLoaded', () => {
-    sendEvent(Event.PageView, {
+    sendEvent(EventType.PageView, {
       url: window.location.href,
       referrer: document.referrer,
       language: navigator.language,
@@ -14,10 +15,13 @@ function init() {
   })
 }
 
-async function sendEvent(event: Event, data: Record<string, unknown>) {
+async function sendEvent(
+  eventType: EventType,
+  data: Omit<IEvent, 'type' | 'timestamp'>
+) {
   try {
-    const payload = {
-      event,
+    const payload: IEvent = {
+      type: eventType,
       timestamp: new Date().toISOString(),
       ...data,
     }

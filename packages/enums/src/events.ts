@@ -1,3 +1,3 @@
-export enum Event {
+export enum EventType {
   PageView = 'page_view',
 }

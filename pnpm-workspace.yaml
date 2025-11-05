@@ -8,3 +8,4 @@ catalog:
   "@types/node": 24.9.2
   eslint: ^9.39.0
   typescript: ^5.9.3
+  zod: ^4.1.12

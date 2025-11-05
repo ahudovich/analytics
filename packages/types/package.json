@@ -1,24 +1,22 @@
 {
-  "name": "tracker",
-  "version": "0.0.1",
+  "name": "@repo/types",
   "private": true,
   "type": "module",
+  "exports": {
+    "./events": "./src/events.ts"
+  },
   "scripts": {
-    "build": "vite build",
-    "dev": "vite",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@repo/types": "workspace:*"
+    "@repo/enums": "workspace:*",
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@repo/config-eslint": "workspace:*",
     "@repo/config-typescript": "workspace:*",
-    "@repo/enums": "workspace:*",
-    "@types/node": "catalog:",
     "eslint": "catalog:",
-    "typescript": "catalog:",
-    "vite": "^7.1.12"
+    "typescript": "catalog:"
   }
 }

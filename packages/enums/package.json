@@ -12,7 +12,6 @@
   "devDependencies": {
     "@repo/config-eslint": "workspace:*",
     "@repo/config-typescript": "workspace:*",
-    "@types/node": "catalog:",
     "eslint": "catalog:",
     "typescript": "catalog:"
   }
