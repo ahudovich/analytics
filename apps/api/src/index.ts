@@ -1,14 +1,24 @@
+import fastifyCors from '@fastify/cors'
 import { fastify } from 'fastify'
 
-const HOST = '127.0.0.1'
+const HOST = 'localhost'
 const PORT = 3000
 
 const server = fastify({
   logger: true,
 })
 
-server.get('/ping', async (request, reply) => {
+server.register(fastifyCors, {
+  origin: '*',
+})
+
+server.get('/ping', (request, reply) => {
   return reply.send({ message: 'pong' })
+})
+
+server.post('/ingest', async (request, reply) => {
+  console.log(request.body)
+  return reply.send('ok')
 })
 
 async function start() {

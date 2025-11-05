@@ -7,6 +7,8 @@ function init() {
         width: screen.width,
         height: screen.height,
       },
+      language: navigator.language,
+      url: window.location.href,
     })
   })
 }
@@ -15,11 +17,11 @@ async function sendEvent(event: Event, data: Record<string, unknown>) {
   try {
     const payload = {
       event,
-      createdAt: new Date().toISOString(),
+      timestamp: new Date().toISOString(),
       ...data,
     }
 
-    await fetch('#', {
+    await fetch(`${import.meta.env.VITE_API_BASE_URL}/ingest`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
