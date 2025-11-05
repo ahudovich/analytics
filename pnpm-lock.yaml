@@ -72,6 +72,9 @@ importers:
       '@repo/config-typescript':
         specifier: workspace:*
         version: link:../../configs/typescript
+      '@repo/enums':
+        specifier: workspace:*
+        version: link:../../packages/enums
       '@types/node':
         specifier: 'catalog:'
         version: 24.9.2
@@ -108,6 +111,12 @@ importers:
       '@tsconfig/node24':
         specifier: ^24.0.1
         version: 24.0.1
+
+  packages/enums:
+    devDependencies:
+      '@repo/config-typescript':
+        specifier: workspace:*
+        version: link:../../configs/typescript
 
 packages:
 

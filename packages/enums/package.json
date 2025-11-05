@@ -1,0 +1,11 @@
+{
+  "name": "@repo/enums",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./events": "./src/events.ts"
+  },
+  "devDependencies": {
+    "@repo/config-typescript": "workspace:*"
+  }
+}
