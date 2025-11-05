@@ -7,17 +7,21 @@
     },
     "build": {
       "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": ["dist/**"]
     },
     "dev": {
       "cache": false,
       "persistent": true
     },
+    "typecheck": {
+      "dependsOn": ["transit"]
+    },
     "lint": {
       "dependsOn": ["transit"]
     },
-    "typecheck": {
-      "dependsOn": ["transit"]
-    }
+    "//#lint:repo": {},
+    "//#format": {},
+    "//#format:check": {}
   }
 }

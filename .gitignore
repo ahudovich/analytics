@@ -11,3 +11,6 @@ node_modules
 .turbo
 .output
 dist
+
+# Environment variables
+.env*
