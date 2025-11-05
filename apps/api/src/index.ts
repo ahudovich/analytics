@@ -29,14 +29,7 @@ server.get('/ping', (request, reply) => {
 
 async function start() {
   try {
-    await server.listen({ host: HOST, port: PORT }, (error, address) => {
-      if (error) {
-        server.log.error(error)
-        process.exit(1)
-      }
-
-      server.log.info(`Server listening at ${address}`)
-    })
+    await server.listen({ host: HOST, port: PORT })
   } catch (error: unknown) {
     server.log.error(error)
     process.exit(1)
