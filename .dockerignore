@@ -1,5 +1,9 @@
 .vscode
 .git
 .gitignore
+.editorconfig
+.npmrc
+.prettierignore
+.prettierrc.json
 node_modules
 dist

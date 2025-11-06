@@ -14,8 +14,6 @@ RUN corepack enable
 # Use only the major version of `turbo` here
 RUN pnpm add -g turbo@^2
 
-ENV NODE_ENV="production"
-
 # ------------------------------------------------------
 FROM base AS prepare
 
