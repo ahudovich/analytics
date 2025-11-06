@@ -7,7 +7,7 @@ import {
 import { ingestRoute } from '@/routes/ingest'
 import type { ZodTypeProvider } from 'fastify-type-provider-zod'
 
-const HOST = 'localhost'
+const HOST = '0.0.0.0'
 const PORT = 3000
 
 const server = fastify({
