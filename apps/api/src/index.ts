@@ -4,6 +4,7 @@ import {
   serializerCompiler,
   validatorCompiler,
 } from 'fastify-type-provider-zod'
+import { healthRoute } from '@/routes/health'
 import { ingestRoute } from '@/routes/ingest'
 import type { ZodTypeProvider } from 'fastify-type-provider-zod'
 
@@ -22,10 +23,7 @@ server.register(fastifyCors, {
 })
 
 server.register(ingestRoute)
-
-server.get('/ping', (request, reply) => {
-  return reply.send({ message: 'pong' })
-})
+server.register(healthRoute)
 
 async function start() {
   try {
