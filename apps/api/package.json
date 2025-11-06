@@ -18,7 +18,8 @@
     "@repo/types": "workspace:*",
     "fastify": "^5.6.1",
     "fastify-type-provider-zod": "^6.1.0",
-    "ua-parser-js": "^2.0.6"
+    "ua-parser-js": "^2.0.6",
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@repo/config-eslint": "workspace:*",
