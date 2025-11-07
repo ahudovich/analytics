@@ -1,9 +1,18 @@
-FROM node:24-alpine AS base
+# syntax=docker/dockerfile:1
 
-RUN apk update
-RUN apk add --no-cache libc6-compat
+ARG NODE_VERSION=24
+
+# ------------------------------------------------------
+# Base image with Node.js
+FROM node:${NODE_VERSION}-alpine AS base
 
 WORKDIR /app
+
+# ------------------------------------------------------
+# Base image with system dependencies, pnpm and turbo
+FROM base AS base-deps
+
+RUN apk update && apk add --no-cache libc6-compat
 
 # Configure pnpm global installation path
 ENV PNPM_HOME="/pnpm"
@@ -11,47 +20,56 @@ ENV PATH="$PNPM_HOME:$PATH"
 
 RUN corepack enable
 
-# Use only the major version of `turbo` here
+# Install Turbo globally (major version is enough here)
 RUN pnpm add -g turbo@^2
 
 # ------------------------------------------------------
-FROM base AS prepare
+# Generate pruned monorepo workspace
+FROM base-deps AS workspace-prepare
 
-# Copy the project
 COPY . .
 
-# Generate a partial monorepo with a pruned lockfile for a target workspace
 RUN turbo prune api --docker
 
 # ------------------------------------------------------
-FROM base AS prod-deps
+# Production dependencies
+FROM base-deps AS prod-deps
 
-# Install only production dependencies
-COPY --from=prepare /app/out/json/ .
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
+# Copy pruned JSON workspace
+COPY --from=workspace-prepare /app/out/json/ .
+
+# Install production dependencies with cache
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
+    pnpm install --prod --frozen-lockfile
 
 # ------------------------------------------------------
-FROM base AS builder
+# Build stage
+FROM base-deps AS builder
+
+# Copy workspace package.json files
+COPY --from=workspace-prepare /app/out/json/ .
 
 # Install only required dependencies
-COPY --from=prepare /app/out/json/ .
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
+    pnpm install --frozen-lockfile
 
-# Copy full pruned workspace to build
-COPY --from=prepare /app/out/full/ .
+# Copy full workspace
+COPY --from=workspace-prepare /app/out/full/ .
 
 # Build the app
 RUN pnpm turbo run build --filter=api
 
 # ------------------------------------------------------
+# Final runtime image
 FROM base AS runner
 
 # Create non-root user
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 api
+
 USER api
 
-# Copy the entire node_modules structure (preserving workspace structure)
+# Copy production node_modules preserving monorepo structure
 COPY --from=prod-deps --chown=api:nodejs /app/node_modules ./node_modules
 COPY --from=prod-deps --chown=api:nodejs /app/apps/api/node_modules ./apps/api/node_modules
 
