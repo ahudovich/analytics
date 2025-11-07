@@ -1,4 +1,3 @@
-import fastifyCors from '@fastify/cors'
 import { NestFactory } from '@nestjs/core'
 import {
   FastifyAdapter,
@@ -15,7 +14,7 @@ async function bootstrap() {
     new FastifyAdapter()
   )
 
-  app.register(fastifyCors, {
+  app.enableCors({
     origin: '*',
   })
 
