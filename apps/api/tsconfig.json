@@ -1,9 +1,0 @@
-{
-  "extends": "@repo/config-typescript/node.json",
-  "include": ["src"],
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  }
-}
