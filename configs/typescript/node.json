@@ -2,10 +2,15 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": ["./base.json", "@tsconfig/node24/tsconfig.json"],
   "compilerOptions": {
-    "module": "esnext",
-    "moduleResolution": "bundler",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "isolatedModules": true,
-    "resolveJsonModule": true,
-    "verbatimModuleSyntax": true
+
+    "sourceMap": true,
+    "declaration": true,
+    "removeComments": true,
+
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   }
 }
