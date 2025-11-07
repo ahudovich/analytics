@@ -1,9 +1,15 @@
-.vscode
+# Top level directories
 .git
-.gitignore
+.vscode
+node_modules
+
+# Artifacts
+dist
+
+# Configuration files
 .editorconfig
+.gitignore
 .npmrc
 .prettierignore
 .prettierrc.json
-node_modules
-dist
+*.md
