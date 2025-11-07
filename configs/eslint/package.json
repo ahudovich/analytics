@@ -6,6 +6,9 @@
     "./node": "./node.js",
     "./vite": "./vite.js"
   },
+  "scripts": {
+    "clean": "rimraf node_modules"
+  },
   "devDependencies": {
     "@eslint/js": "catalog:",
     "eslint": "catalog:",

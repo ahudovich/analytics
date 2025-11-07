@@ -13,6 +13,8 @@
     "url": "https://github.com/ahudovich/analytics"
   },
   "scripts": {
+    "clean": "turbo run clean && pnpm run clean:root",
+    "clean:root": "git clean -xfd node_modules",
     "build:api": "turbo run build --filter=api",
     "build:tracker": "turbo run build --filter=tracker",
     "dev": "turbo run dev",
@@ -28,6 +30,7 @@
     "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
     "@prettier/plugin-oxc": "^0.0.4",
     "prettier": "3.6.2",
+    "rimraf": "^6.1.0",
     "turbo": "^2.6.0"
   }
 }

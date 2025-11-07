@@ -6,6 +6,7 @@
     "./events": "./src/events.ts"
   },
   "scripts": {
+    "clean": "rimraf node_modules",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },

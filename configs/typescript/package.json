@@ -1,6 +1,9 @@
 {
   "name": "@repo/config-typescript",
   "private": true,
+  "scripts": {
+    "clean": "rimraf node_modules"
+  },
   "devDependencies": {
     "@tsconfig/node24": "^24.0.1"
   }

@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "clean": "rimraf node_modules dist",
     "build": "vite build",
     "dev": "vite",
     "lint": "eslint .",

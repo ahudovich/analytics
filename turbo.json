@@ -5,6 +5,7 @@
     "transit": {
       "dependsOn": ["^transit"]
     },
+    "clean": {},
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
