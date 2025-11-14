@@ -1,11 +1,12 @@
 import { Job, Worker } from 'bullmq'
 import { UAParser } from 'ua-parser-js'
 import { isBot } from 'ua-parser-js/helpers'
+import { QueueName } from '@/enums/queues'
 import { redisClient } from '@/lib/redis'
 import type { IEvent } from '@repo/types/events'
 
 export const eventsWorker = new Worker(
-  'events',
+  QueueName.Events,
   async (job: Job<IEvent>) => {
     const isBotDetected = isBot(job.data.userAgent ?? '')
 
