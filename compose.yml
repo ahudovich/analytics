@@ -5,3 +5,15 @@ services:
       dockerfile: apps/api/Dockerfile
     ports:
       - '3000:3000'
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:latest
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis-data:/data
+
+volumes:
+  redis-data:

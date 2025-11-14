@@ -1,5 +1,5 @@
 import { EventType } from '@repo/enums/events'
-import type { IEvent } from '@repo/types/events'
+import type { IBrowserEvent } from '@repo/types/events'
 
 function init() {
   document.addEventListener('DOMContentLoaded', () => {
@@ -17,10 +17,10 @@ function init() {
 
 async function sendEvent(
   eventType: EventType,
-  data: Omit<IEvent, 'type' | 'timestamp'>
+  data: Omit<IBrowserEvent, 'type' | 'timestamp'>
 ) {
   try {
-    const payload: IEvent = {
+    const payload: IBrowserEvent = {
       type: eventType,
       timestamp: new Date().toISOString(),
       ...data,

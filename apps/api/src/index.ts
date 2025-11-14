@@ -4,6 +4,7 @@ import {
   serializerCompiler,
   validatorCompiler,
 } from 'fastify-type-provider-zod'
+import { eventsWorker } from '@/lib/workers'
 import { healthRoute } from '@/routes/health'
 import { ingestRoute } from '@/routes/ingest'
 import type { ZodTypeProvider } from 'fastify-type-provider-zod'
@@ -28,6 +29,7 @@ server.register(healthRoute)
 async function start() {
   try {
     await server.listen({ host: HOST, port: PORT })
+    await eventsWorker.run()
   } catch (error: unknown) {
     server.log.error(error)
     process.exit(1)

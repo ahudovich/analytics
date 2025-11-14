@@ -1,7 +1,7 @@
 import { EventType } from '@repo/enums/events'
 import { z } from 'zod'
 
-export const eventSchema = z.object({
+export const browserEventSchema = z.object({
   type: z.enum(EventType),
   timestamp: z.string(),
   url: z.string(),
@@ -13,4 +13,9 @@ export const eventSchema = z.object({
   }),
 })
 
-export type IEvent = z.infer<typeof eventSchema>
+export type IBrowserEvent = z.infer<typeof browserEventSchema>
+
+export interface IEvent extends IBrowserEvent {
+  ip: string
+  userAgent: string | undefined
+}

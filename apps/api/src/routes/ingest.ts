@@ -1,6 +1,6 @@
-import { eventSchema } from '@repo/types/events'
-import { UAParser } from 'ua-parser-js'
-import { isBot } from 'ua-parser-js/helpers'
+import { browserEventSchema } from '@repo/types/events'
+import { addEventToQueue } from '@/lib/queues'
+import type { IBrowserEvent } from '@repo/types/events'
 import type { FastifyInstance } from 'fastify'
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
 
@@ -11,47 +11,20 @@ export const ingestRoute: FastifyPluginAsyncZod = async (
     method: 'POST',
     url: '/ingest',
     schema: {
-      body: eventSchema,
+      body: browserEventSchema,
     },
     handler: async (request, reply) => {
-      const body = request.body
+      const body = request.body as IBrowserEvent
       const ip = request.ip
       const userAgent = request.headers['user-agent']
 
-      const isBotDetected = isBot(userAgent ?? '')
-
-      if (isBotDetected) {
-        return reply.send({
-          ip,
-          body,
-          isBot: true,
-        })
-      }
-
-      const parsedUserAgent = await UAParser(userAgent).withClientHints()
-
-      const os = {
-        name: parsedUserAgent.os.name,
-        version: parsedUserAgent.os.version,
-      }
-
-      const browser = {
-        name: parsedUserAgent.browser.name,
-        version: parsedUserAgent.browser.version,
-      }
-
-      const device = {
-        model: parsedUserAgent.device.model,
-        vendor: parsedUserAgent.device.vendor,
-      }
-
-      return reply.send({
+      await addEventToQueue({
+        ...body,
         ip,
-        body,
-        os,
-        browser,
-        device,
+        userAgent,
       })
+
+      return reply.send('ok')
     },
   })
 }
